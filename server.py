@@ -6,14 +6,14 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 
 #Prepare a server socket
 host = ''
-port = 34832
+port = 8887
 
 # we could also have bind it to speicfic address or local host  & we tell the operating system to
 serverSocket.bind ((host, port))#associate the socket with the local address,
 
 
 # accept upto 5 accepting cleint , waiting queue
-serverSocket.listen(1)
+serverSocket.listen(5)
 
 
 while True:
@@ -27,7 +27,7 @@ while True:
 
     try:
       #recieve the message from the client
-        message = serverSocket.recv(1024)
+        message = connectionSocket.recv(1024)
         filename = message.split()[1]
         f = open(filename[1:])
 
